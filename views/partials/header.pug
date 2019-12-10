@@ -1,0 +1,18 @@
+<div class="topnav">
+    <a class="active" href="/dataset">Home</a>
+    <a href="index.html">About</a>
+    <a href="#Quality Framework">T-DQA Quality Framework</a>
+    <a href="#People">People</a>
+    <a href="#publication">Publication</a>
+    <a href="#Donate Dataset">Donate Dataset</a>
+    <a href="#Cite Us">Cite Us</a>
+    <a href="#Acknowldgment">Acknowldgement</a>
+    <a href="#Contact Us">Contact Us</a>
+    if user
+        <a class="float-right" href="/users/logout">Logout</a>
+        <a class="float-right" href="#"><i class="fa fa-fw fa-user"></i> #{user.firstname} #{user.lastname}</a>
+    else
+        <a class="float-right" href="/users/login">Login</a>
+        <a class="float-right" href="/users/register">Register</a>
+    
+</div>

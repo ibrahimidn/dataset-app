@@ -1,0 +1,54 @@
+extends ../../layout.pug
+block content
+    <div class="equalcol">
+        <div class="tab-left"><!-- right side col-->
+            include leftsidebar.pug
+        </div>
+        <div class="tab-right"><!-- right side col-->
+            <br>
+            <div class="row"><a href="/dataset/add" class="btn btn-outline-success  btn-block  mt-1"><i class="fa fa-upload" aria-hidden="true"></i>  Upload new Dataset</a></div>
+            if data
+                table
+                    each item,index in data
+                        <div class="row"><!-- row1-->
+                            <div class="col-lg-12"> <!-- col-1-->
+                                <div class="row row-details"> <!-- row-2 details col-->
+                                    <div class="col-lg-12"><!-- col-2-->
+                                        <div class="row"> <!-- row-3-->
+                                            <div class="col-lg-12"><!-- col-3 -->
+                                                <label class="row-caption"><span class="secton-label-left">Name</span><span class="secton-label-right">#{item.name}</span> </label>
+                                                <label class="row-caption row-caption-right"> <span class="secton-label-left">Domain</span><span class="secton-label-right">#{item.domain}</span></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="row"><!-- row-4 -->
+                                            <div class="col-lg-12"><!-- col-4 -->
+                                                <div class="file-information"><!-- information-label -->
+                                                    <label class="snippet-id-label">#{index+1}</label>
+                                                    <label class="information-label"><span class="secton-label-left">Size</span><span class="secton-label-right">#{item.OracleSize}</span></label>
+                                                    <label class="information-label"><span class="secton-label-left">Format</span><span class="secton-label-right">#{item.ArtifactsFormat.join("+")}</span></label>
+                                                    <button type="button" class="tactics-button" onClick=Download('#{item._id}')><i class="fa fa-download" aria-hidden="true"></i> Download</button>
+                                                    <button type="button" class="tactics-button" onClick=Details()><i class="fa fa-info-circle" aria-hidden="true"></i></i> Details</button>
+                                                </div><!-- information-label -->
+                                            </div><!-- /col-4 -->
+                                        </div>
+                                        <div class="row"><!-- row-5 -->
+                                            <div class="col-lg-12"> <!-- col-5 -->
+                                                <label class="snippet-caption">Dataset Description</label>
+                                            </div><!-- /col-5 -->
+                                        </div><!-- row-5 -->
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="snippet-codes">
+                                                    <p class="description">#{item.description}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+        </div>
+    </div>
+    <form id="download" action="/dataset/download" method="GET"><input type="hidden" name="id" value="fmjfnrjnj"></form>
