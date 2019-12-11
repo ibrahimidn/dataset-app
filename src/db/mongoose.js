@@ -1,5 +1,6 @@
 const mongoose=require('mongoose')
-mongoose.connect('mongodb://127.0.0.1/datsets',{
+var url=process.env.MONGODB_URI||'mongodb://127.0.0.1/datsets'
+mongoose.connect(url,{
     useUnifiedTopology: true,
     useCreateIndex: true
 }).then(() => {
